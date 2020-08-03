@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import PageDefault from '../../../components/PageDefault';
 import FormField from '../../../components/FormField';
 import Button from '../../../components/Button';
 import useForm from '../../../hooks/useForm';
+import categoryRepository from '../../../repositories/categorias';
 
 function CadastroCategoria() {
+  const history = useHistory();
   const valoresIniciais = {
     titulo: '',
     descricao: '',
@@ -38,11 +40,16 @@ function CadastroCategoria() {
 
       <form onSubmit={function HandleSubmit(infosDoEvento) {
         infosDoEvento.preventDefault();
-        setCategorias([
-          ...categorias,
-          values,
-        ]);
-
+        categoryRepository.create({
+          titulo: values.titulo,
+          descricao: values.descricao,
+          cor: values.cor,
+        })
+          .then(() => {
+            // eslint-disable-next-line no-alert
+            alert('Cadastrou a categoria com sucesso!!!');
+            history.push('/');
+          });
         clearForm();
       }}
       >
@@ -90,9 +97,9 @@ function CadastroCategoria() {
         ))}
       </ul>
 
-      <Link to="/">
+      <Button as={Link} className="ButtonLink" to="/">
         Ir para home
-      </Link>
+      </Button>
     </PageDefault>
   );
 }
