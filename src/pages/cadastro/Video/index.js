@@ -77,7 +77,7 @@ function CadastroVideo() {
       <br />
       <br />
 
-      <Button as={Link} className="ButtonLink" to="/cadastro/categoria">
+      <Button as={Link} to="/cadastro/categoria">
         Cadastrar Categoria
       </Button>
     </PageDefault>
