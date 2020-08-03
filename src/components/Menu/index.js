@@ -4,17 +4,17 @@ import Logo from '../../assets/img/Logo.png';
 import './Menu.css';
 import Button from '../Button';
 
-function Menu(){
-    return (
-        <nav className="Menu">
-            <Link to="/">
-                <img className="Logo" src={Logo} alt='Logo da MyFlix' />
-            </Link>
-            <Button as={Link} className="ButtonLink" to="/cadastro/video">
-                Novo vídeo
-            </Button>
-        </nav>
-    );
+function Menu() {
+  return (
+    <nav className="Menu">
+      <Link to="/">
+        <img className="Logo" src={Logo} alt="MyFlix" />
+      </Link>
+      <Button as={Link} className="ButtonLink" to="/cadastro/video">
+        Novo vídeo
+      </Button>
+    </nav>
+  );
 }
 
 export default Menu;
