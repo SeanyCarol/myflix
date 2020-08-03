@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 import React from 'react';
 import { FooterBase } from './styles';
 
@@ -13,6 +14,9 @@ function Footer() {
         <a href="https://www.alura.com.br/">
           Imersão React da Alura
         </a>
+      </p>
+      <p>
+        Desenvolvido por Seany Caroliny
       </p>
     </FooterBase>
   );
